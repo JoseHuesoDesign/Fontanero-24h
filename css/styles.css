@@ -1,0 +1,289 @@
+/* Variables Globales y Reset */
+
+:root {
+    --primary-color: #ffffff;
+    --text-color: #1f2937;
+    --brand-color: #2563eb; /* COlor de acento / botones */
+    --card-bg: #55565a;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background: radial-gradient(var(--primary-color), var(--brand-color));
+    line-height: 1.6;
+}
+
+/* Estilos Generales y Layout de Secciones */
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--brand-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 100;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.logo {
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+header a, .btn-hero {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a:hover, .btn-hero:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+header nav {
+    display: flex;
+}
+
+.btn-principal,
+.btn-whatsapp {
+    background-color: var(--card-bg);
+    padding: 4px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+}
+
+/* --- Botón Hamburguesa --*/
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Ocultar el nav por defecto en móviles */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Justo debajo del header */
+    right: 0;
+    width: 100%;
+    background-color: var(--brand-color);
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+/* Cuando JavaScript añade la clase .active, el nav se muestra */
+.nav-menu.active {
+    max-height: 200px;
+    padding: 1rem;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-menu a {
+    width: auto;
+    text-align: center;
+    margin-left: 0 !important;
+}
+
+main section {
+    padding: 4rem 2rem;
+}
+
+.hero {
+    background: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.aviso-urgencia {
+    background-color: #f3f4f6; /* Un gris muy suave de fondo */
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem auto 1.5rem auto;
+    max-width: 400px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem; 
+    margin-bottom: 1.5rem;
+    color: var(--brand-color);
+    text-shadow: 4px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.hero a {
+    display: flex;
+    justify-content: center;
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 0 auto;
+    width: 20rem;
+}
+
+.btn-hero {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Diseño de las Terjetas de Servicios */
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    color: var(--primary-color);
+}
+
+article img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+article h2 {
+    text-align: center;
+    color: var(--brand-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+article p {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonio p{
+    color: var(--text-color);
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    gap: 12px;
+    padding: 12px;
+    margin: 2rem auto;
+    margin-bottom: 25px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.contacto h2 {
+    color: var(--brand-color);
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+}
+
+.contacto li,
+.contacto p {
+    list-style: none;
+    font-size: 1.15rem;
+    color: var(--primary-color);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--brand-color);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    border-top: 2px solid var(--primary-color);
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .servicios-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Ocultamos el botón de tres rayas en pantallas grandes */
+    .hamburger-btn {
+        display: none;
+    }
+
+    /* El nav vuelve a su posición normal en horizontal */
+    .nav-menu {
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+        max-height: none;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Componentes Reutilizables (Botones y Formularios) */
+
+.btn-principal {
+    display: flex;
+}
